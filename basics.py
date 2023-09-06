@@ -44,8 +44,8 @@ unique_numbers = {1, 2, 3, 4 , 5}
 # Arrays - similar to lists, but they are more efficient 
 # for numerical computations when using the numpy library. 
 # They provide powerful mathematical operations.
-# import numpy as np
-# num_array = np.array([1, 2, 3, 4, 5])
+    # import numpy as np
+    # num_array = np.array([1, 2, 3, 4, 5])
 
 # Stacks and queues are abstract data types.
 # Example using collections module:
@@ -60,7 +60,7 @@ queue = deque()
 # Python executes like a person reads a book:
 # Left to right, top to bottom.
 
-# f string - equivalent to interpolated string in JavaScript
+# f string - equivalent to string interpolation in JavaScript
 age = 34
 print(f"My age is {age}")
 
@@ -85,5 +85,3 @@ print(f"My age is {age}")
     # APIs
     # Dates
     # Database Interaction
-
-# 
