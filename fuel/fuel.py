@@ -1,9 +1,3 @@
-# ask for fraction input in the form of X/Y
-# anything entered in the wrong format reprompts user to enter a fraction
-# return fraction in percentage
-# if percentage is <= 1% return E for empty
-# if percentage is >= 99% return F for full
-
 from fractions import Fraction
 
 def main():
