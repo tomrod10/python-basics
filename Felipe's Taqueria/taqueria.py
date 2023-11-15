@@ -1,3 +1,6 @@
+def main():
+    taqueria()
+
 def taqueria():
     menu = {
         "Baja Taco": 4.25,
@@ -22,4 +25,4 @@ def taqueria():
             print()
             break
 
-taqueria()
+main()
