@@ -7,19 +7,19 @@ def main():
 
 def print_ascii():
     figlet = Figlet()
-    message = input('Input: ')
-    try:
-        font_flag = sys.argv[1]
-        f = sys.argv[2]
-        if font_flag in ('-f', '--font'):
-            figlet.setFont(font=f)
-            print(figlet.renderText(message))
-        else:
-            raise ValueError("Invalid font flag")
-    except IndexError:
-        fonts = figlet.getFonts()
-        random_font = fonts[random.randrange(0, len(fonts))]
+    fonts = figlet.getFonts()
+    
+    if len(sys.argv) == 1:
+        random_font = random.choice(fonts)
         figlet.setFont(font=random_font)
-        print(figlet.renderText(message))
+    elif len(sys.argv) == 3 and (sys.argv[1] == '-f' or sys.argv[1] == '--font') and (sys.argv[2] in fonts):
+        figlet.setFont(font=sys.argv[2])
+    else:
+        sys.exit('Invalid usage')
+
+    message = input('Input: ')
+
+    print('Output:')
+    print(figlet.renderText(message))
 
 main()
