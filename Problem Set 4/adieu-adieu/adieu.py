@@ -12,8 +12,7 @@ def adieu():
             msg = 'Adieu, adieu, to'
             name = input('Input: ')
             names.append(name)
-            print(msg, p.join(names))
         except EOFError:
-            print()
+            print(msg, p.join(names))
             break
 main()
