@@ -2,17 +2,12 @@ import random
 
 def main():
     level = get_level()
-    
-    # score starts at 0
     score = 0
-    # loop 10 times == 10 questions
+
     for i in range(10):
-        # get current ints
         x, y = generate_integer(level)
-        # get current answer
         answer = x + y
-        # prompt user for answer
-            # only three tries per questions
+
         for j in range(3):
             while True:
                 try:
@@ -21,7 +16,7 @@ def main():
                     continue
                 finally:
                     break
-            
+
             if user_answer == answer:
                 score += 1
                 break
@@ -29,9 +24,7 @@ def main():
                 print(f"{x} + {y} = {answer}")
             else:
                 print("EEE")
-
     print(f"Score: {score}")
-
 
 def get_level():
     while True:
