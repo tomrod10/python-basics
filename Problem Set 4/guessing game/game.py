@@ -4,11 +4,9 @@ def main():
     guess_random_int()
 
 def guess_random_int():
-    # level = input("Level: ")
     while True:
         try:
             level = int(input("Level: "))
-            # int(level)
         except ValueError:
             continue
         if level <= 0:
