@@ -9,14 +9,15 @@ def main():
         answer = x + y
 
         for j in range(3):
-            while True:
-                try:
-                    user_answer = int(input(f"{x} + {y} = "))
-                except ValueError:
-                    continue
-                finally:
+            try:
+                user_answer = int(input(f"{x} + {y} = "))
+            except ValueError:
+                print("EEE")
+                if j == 2:
+                    print(f"{x} + {y} = {answer}")
                     break
-
+                continue
+            
             if user_answer == answer:
                 score += 1
                 break
