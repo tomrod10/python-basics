@@ -1,5 +1,6 @@
 import random
 
+
 def main():
     level = get_level()
     score = 0
@@ -17,7 +18,7 @@ def main():
                     print(f"{x} + {y} = {answer}")
                     break
                 continue
-            
+
             if user_answer == answer:
                 score += 1
                 break
@@ -27,6 +28,7 @@ def main():
                 print("EEE")
     print(f"Score: {score}")
 
+
 def get_level():
     while True:
         try:
@@ -35,6 +37,7 @@ def get_level():
                 return level
         except ValueError:
             continue
+
 
 def generate_integer(level):
     if level == 1:
@@ -47,5 +50,6 @@ def generate_integer(level):
         x = random.randint(100, 999)
         y = random.randint(100, 999)
     return x, y
+
 
 main()

@@ -1,7 +1,9 @@
 import random
 
+
 def main():
     guess_random_int()
+
 
 def guess_random_int():
     while True:
@@ -20,7 +22,7 @@ def guess_random_int():
             guess = int(input("Guess: "))
         except ValueError:
             continue
-        
+
         if guess < answer:
             print("Too small!")
         elif guess > answer:
@@ -28,5 +30,6 @@ def guess_random_int():
         else:
             print("Just right!")
             break
+
 
 main()

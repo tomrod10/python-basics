@@ -1,6 +1,7 @@
 def main():
     grocery_list()
 
+
 def grocery_list():
     items = {}
     while True:
@@ -13,7 +14,8 @@ def grocery_list():
         except EOFError:
             sorted_items = sorted(items.keys())
             for item in sorted_items:
-                print(f'{items[item]} {item.upper()}')
+                print(f"{items[item]} {item.upper()}")
             break
+
 
 main()
