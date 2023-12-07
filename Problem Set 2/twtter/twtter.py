@@ -10,4 +10,5 @@ def remove_vowels():
     print(user_input)
 
 
-main()
+if __name__ == "__main__":
+    main()
