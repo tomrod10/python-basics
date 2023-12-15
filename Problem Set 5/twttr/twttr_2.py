@@ -1,5 +1,6 @@
 def main():
-    shorten("Twitter")
+    word = input("Input: ")
+    print(shorten(word))
 
 
 def shorten(string):
