@@ -2,23 +2,29 @@ from fractions import Fraction
 
 
 def main():
-    percentage = get_fuel_percentage()
-    print(percentage)
+    fraction = input("Fraction: ")
+    percentage = convert(fraction)
+    print(gauge(percentage))
 
 
-def get_fuel_percentage():
+def convert(fraction):
     while True:
-        fuel = input("Fraction: ")
         try:
-            x, y = fuel.split("/")
+            x, y = fraction.split("/")
             numerator = int(x)
             denominator = int(y)
-            fraction = numerator / denominator
-            if fraction <= 1:
-                break
+            f = numerator / denominator
+            if f <= 1:
+                percentage = int(100 * f)
+                return percentage
         except (ZeroDivisionError, ValueError):
+            raise
+        else:
+            fraction = input("Fraction: ")
             pass
-    percentage = int(fraction * 100)
+
+
+def gauge(percentage):
     if percentage <= 1:
         return "E"
     elif percentage >= 99:
@@ -27,4 +33,5 @@ def get_fuel_percentage():
         return f"{percentage}%"
 
 
-main()
+if __name__ == "__main__":
+    main()

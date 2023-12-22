@@ -1,34 +1,39 @@
 import pytest
 
-from fuel import get_fuel_percentage
+from fuel import convert, gauge
 
 
 def main():
-    test_1()
-    test_2()
-    test_3()
+    test_convert()
+    test_gauge()
 
 
-def test_1():
-    assert get_fuel_percentage("1/4") == "25%"
-    assert get_fuel_percentage("1/2") == "50%"
-    assert get_fuel_percentage("3/4") == "75%"
-    assert get_fuel_percentage("1/1") == "100%"
+def test_convert():
+    assert convert("1/4") == 25
+    assert convert("1/2") == 50
+    assert convert("3/4") == 75
+    assert convert("1/1") == 100
+    assert convert("1/100") == 1
 
-
-def test_2():
     with pytest.raises(ValueError):
-        get_fuel_percentage(1 / 2)
-        get_fuel_percentage(3 / 4)
+        convert("cat/dog")
 
-
-def test_3():
     with pytest.raises(ZeroDivisionError):
-        get_fuel_percentage("3/0")
-        get_fuel_percentage("5/0")
+        convert("0/0")
+        convert("3/0")
+        convert("5/0")
+
+
+def test_gauge():
+    assert gauge(1) == "E"
+    assert gauge(100) == "F"
+    assert gauge(25) == "25%"
+    assert gauge(50) == "50%"
+    assert gauge(75) == "75%"
+
+    with pytest.raises(TypeError):
+        gauge("3")
+        gauge({})
 
 
 main()
-# If X and/or Y is not an integer, or if X is greater than Y, then convert should raise a ValueError
-
-# If Y is 0, then convert should raise a ZeroDivisionError.
