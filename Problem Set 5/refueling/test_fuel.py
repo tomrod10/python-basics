@@ -36,4 +36,5 @@ def test_gauge():
         gauge({})
 
 
-main()
+if __name__ == "__main__":
+    main()
