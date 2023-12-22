@@ -28,8 +28,8 @@ def test_2():
 
 def test_3():
     with pytest.raises(TypeError):
-        assert is_valid(54)
-        assert is_valid({})
+        is_valid(54)
+        is_valid({})
 
 
 main()
