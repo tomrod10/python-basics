@@ -2,10 +2,11 @@ from fractions import Fraction
 
 
 def main():
-    get_fuel_percentage()
+    percentage = convert()
+    gauge(percentage)
 
 
-def get_fuel_percentage():
+def convert():
     while True:
         fuel = input("Fraction: ")
         try:
@@ -17,7 +18,10 @@ def get_fuel_percentage():
                 break
         except (ZeroDivisionError, ValueError):
             pass
-    percentage = int(fraction * 100)
+    return int(fraction * 100)
+
+
+def gauge(percentage):
     if percentage <= 1:
         print("E")
     elif percentage >= 99:
