@@ -17,13 +17,9 @@ def tabulate_pizza_menu():
         elif not sys.argv[1].endswith(".csv"):
             sys.exit("Not a csv file")
 
-        menu = []
         with open(sys.argv[1]) as file:
-            reader = csv.reader(file)
-            for line in reader:
-                menu.append(line)
-
-        print(tabulate(menu, tablefmt="grid"))
+            reader = csv.DictReader(file)
+            print(tabulate(reader, headers="keys", tablefmt="grid"))
 
     except FileNotFoundError:
         sys.exit("File does not exist")
