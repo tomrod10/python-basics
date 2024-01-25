@@ -9,8 +9,7 @@ def parse(html):
     try:
         url = re.search(r"(?:\bsrc=)(.+?\")", html).group(1)
         video_id = re.search(r"(?:embed/)(.+[a-zA-Z0-9])", url).group(1)
-        shortened_url = "https://youtu.be/" + video_id
-        return shortened_url
+        return "https://youtu.be/" + video_id
     except AttributeError:
         return None
 
