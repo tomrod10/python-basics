@@ -6,7 +6,7 @@ def main():
 
 
 def validate_email(str):
-    if validators.email(str) or len(str) == 0:
+    if validators.email(str):
         return "Valid"
     else:
         return "Invalid"
