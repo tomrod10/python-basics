@@ -28,7 +28,7 @@ def minutes_lived(date_str):
     diff = today - dt
     minutes = int(
         (diff.total_seconds() + 86_400) / 60
-    )  # adding 86,400 (seconds in 1 day) because the diff is 364 days. Answers are based on 365 days
+    )  # adding 86,400 (seconds in 1 day) because the diff is 364 days. Problem answers are based on 365 days
 
     msg = p.number_to_words(minutes, andword="") + " minutes"
     return msg.capitalize()
