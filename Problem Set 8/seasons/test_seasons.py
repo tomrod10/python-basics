@@ -23,6 +23,7 @@ def test1():
 
 def test2():
     assert minutes_lived("cat") == "Invalid date"
+    assert minutes_lived("January 1, 1999") == "Invalid date"
     assert minutes_lived("2022-31-50") == "Invalid date"
     assert minutes_lived("1-12-2023") == "Invalid date"
     assert minutes_lived("2022-1-31") == "Invalid date"
