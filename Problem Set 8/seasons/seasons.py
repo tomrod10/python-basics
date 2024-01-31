@@ -11,7 +11,7 @@ def main():
         date.fromisoformat(s)
     except ValueError:
         sys.exit()
-    print(minutes_lived())
+    print(minutes_lived(s))
 
 
 def minutes_lived(date_str):
