@@ -9,7 +9,7 @@ def test_init():
     assert jar.size == 0
 
 def test_deposit():
-    assert jar.capacity == 12
+    assert jar.size == 0
     jar.deposit(1)
     assert str(jar) == "🍪"
     jar.deposit(2)
