@@ -16,15 +16,18 @@ def create_db_tables(connection, create_db_statement):
     cursor.execute(create_db_statement)
 
 
-def add_user(connection, name, balance, income):
-    ...
+def add_user(connection, data):
+    # data = { "name": "user1", "balance": 15000, "income": 7500, "income_freq": "BW" }
+    cursor = connection.cursor()
+    cursor.executemany("""INSERT INTO user VALUES(:name, :balance, :income, :income_freq)""", data)
 
-def edit_user(connection, name, balance, income):
+def edit_user(connection, data):
     # find user by id, change only what was passed - maybe use a dict
     ...
 
-def add_expense(connection, title, exp_type, amount, recurring):
-    ...
+def add_expense(connection, data):
+    cursor = connection.cursor()
+    cursor.executemany("INSERT INTO expenses VALUES(:title, :type, :amount, :expense_freq)")
 
 def edit_expense(connection, title, exp_type, amount, recurring):
     # same comment as edit_user function
@@ -36,6 +39,7 @@ def main():
             name TEXT,
             balance FLOAT,
             income FLOAT,
+            income_freq VARCHAR(3),
             );"""
 
     expenses_table = """CREATE TABLE IF NOT EXISTS expenses(
@@ -44,8 +48,8 @@ def main():
             tite TEXT,
             type TEXT,
             amount FLOAT,
-            recurring BOOLEAN,
-            FOREIGN KEY(user_id) REFERENCES user_table(id)
+            expense_freq VARCHAR(3)
+            FOREIGN KEY(user_id) REFERENCES user(id)
             );"""
 
     connection = create_db_connection("Guac/Database/app.db")
@@ -55,4 +59,6 @@ def main():
         create_db_tables(connection, expenses_table)
     else:
         print("Error cannot create connection to database")
+
+#add user
 
