@@ -21,13 +21,13 @@ def add_user(connection, data):
     cursor = connection.cursor()
     cursor.executemany("""INSERT INTO user VALUES(:name, :balance, :income, :income_freq)""", data)
 
-def edit_user(connection, data):
+def edit_user(connection, id, data):
     # find user by id, change only what was passed - maybe use a dict
     ...
 
-def add_expense(connection, data):
+def add_expense(connection, id, data):
     cursor = connection.cursor()
-    cursor.executemany("INSERT INTO expenses VALUES(:title, :type, :amount, :expense_freq)")
+    cursor.executemany("INSERT INTO expenses VALUES(:title, :type, :amount, :expense_freq)", data)
 
 def edit_expense(connection, title, exp_type, amount, recurring):
     # same comment as edit_user function
@@ -45,14 +45,14 @@ def main():
     expenses_table = """CREATE TABLE IF NOT EXISTS expenses(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER,
-            tite TEXT,
+            title TEXT,
             type TEXT,
             amount FLOAT,
             expense_freq VARCHAR(3)
             FOREIGN KEY(user_id) REFERENCES user(id)
             );"""
 
-    connection = create_db_connection("Guac/Database/app.db")
+    connection = create_db_connection("app.db")
 
     if connection is not None:
         create_db_tables(connection, user_table)
